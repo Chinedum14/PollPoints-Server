@@ -17,7 +17,11 @@ const businessUserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  contact: {
+  phoneNumber: {
+    type: String,
+    required: true,
+  },
+  email: {
     type: String,
     required: true,
   },

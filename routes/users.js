@@ -74,16 +74,17 @@ UserRouter.post('/user_registration', async (req, res) => {
 
 UserRouter.post('/business_user_registration', async (req, res) => {
   try {
-    const { name, industry, produce, location, contact, password } = req.body;
+    const { name, industry, produce, location, phoneNumber, email, password } = req.body;
 
-    if (name && industry && produce && location && contact && password) {
+    if (name && industry && produce && location && phoneNumber && email && password) {
       const hashPassword = await bcrypt.hash(password, 14);
       const user = await BusinessUser.create({
         name,
         industry,
         produce,
         location,
-        contact,
+        phoneNumber,
+        email,
         password: hashPassword,
       });
 
